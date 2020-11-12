@@ -1,0 +1,53 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "data" : {
+    "url": "https://raw.githubusercontent.com/bcviscourse/datasets/master/lab6-unemployment-unpivoted.csv.csv"
+  },
+  "vconcat": [
+  {
+  "width": 600,
+  "mark": "area",
+  "encoding": {
+    "x": {
+      "field": "Year",
+      "type": "temporal",
+      "scale": {
+        "domain": {
+          "selection": "brush"
+        }
+      }
+    },
+    "y": {
+      "field": "Purchases",
+      "type": "quantitative",
+      "aggregate": "sum"
+      
+    },
+    "color": {
+      "field": "Series",
+      "scale": {"scheme": "category20b"}
+    }
+  }
+  },
+  {
+  "width": 600,
+  "height": 100,
+  "mark": "area",
+  "selection": {
+    "brush": {"type": "interval"}
+  },
+  "encoding": {
+    "x": {
+      "field": "Year",
+      "type": "temporal"
+    },
+    "y": {
+      "field": "Purchases",
+      "type": "quantitative",
+      "aggregate": "sum"
+      
+    }
+  }
+  }
+  ]
+}
