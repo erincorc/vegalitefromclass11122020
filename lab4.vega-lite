@@ -1,0 +1,42 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "data" : {
+    "url": "https://raw.githubusercontent.com/bcviscourse/datasets/master/lab4-wealth-health-2014.csv"
+  },
+  "width": 400,
+  "height": 300,
+  "selection": {
+    "Region": {
+      "type": "single",
+      "fields": ["Region"],
+      "bind": {"input": "select", "options": [null, "America", "South Asia", "East Asia & Pacific", "Europe & Central Asia", "Middle East & North Africa"]}
+    }
+  },
+  "mark": "circle",
+  "encoding": {
+    "x": {
+      "field": "Income",
+      "type": "quantitative",
+      "scale": {"type": "log"}
+    },
+    "y":{
+      "field": "LifeExpectancy",
+      "type": "quantitative",
+      "scale": {"zero": false}
+    },
+    "color": {
+      "value": "gray",
+      "condition": {
+        "selection": "Region",
+        "field": "Region"
+      }
+    },
+    "size": {
+      "field": "Population",
+      "type": "quantitative",
+      "scale": {
+        "range": [5, 1000]
+      } 
+    }
+  }
+}
