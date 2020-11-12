@@ -1,0 +1,19 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "data" : {
+    "url": "https://raw.githubusercontent.com/bcviscourse/datasets/master/lab5-coffee-house-chains.csv"
+  },
+  "repeat": ["stores", "revenue"],
+  "spec": {
+    "mark": "bar",
+  "encoding": {
+    "y": {
+      "field": "company"
+    },
+    "x": {
+      "field": {"repeat": "repeat"},
+      "type": "quantitative"
+    }
+  }
+  }
+}
